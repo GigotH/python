@@ -45,11 +45,44 @@ def list_movies():
         # print(f"Title: {movie['title']}, Director: {movie['director']}, Released: {movie['year']}")
         # print(f"Title: {movie['title']}, Director: {movie['director']}, Released: ")
     #print(movie_list)
- 
 
+def get_search_type():
+    srch_type = ""
+    while srch_type != 't' and srch_type != 'd' and srch_type != 'y':
+        srch_type = input("\nEnter 't' to search by Title, 'd' to search by Director name or 'y' to search by Year:  ")
+    
+    return srch_type
+
+
+def search_movies(search_type):
+    search_string = ""
+    while search_string == "":
+        if search_type == "t":
+            search_string = input("Enter the Title of the movie for which you want to search:  ")
+            searching_for = "Title"
+        elif search_type == "d":
+            search_string = input("Enter the Director of the movie for which you want to search:  ")
+            searching_for = "Director"
+        else:
+            search_string = input("Enter the Release Year of the movie for which you want to search:  ")
+            searching_for = "Release Year"
+        
+        print(f"{searching_for} Search for the string \"{search_string}\"")
+
+        filehandle = open(movie_file, 'r')
+        movie_list = filehandle.read()
+        for movie in movie_list:
+            if search_string in movie:
+                print(f"Found {search_string} in {movie}.")
+            else:
+                print(f"Did NOT find {search_string} in {movie}.")
+
+"""
+MAIN CODE SECTION:
+"""
 
 movie_file = 'moviefile.txt'
-MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: "
+MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie or 'q' to quit: "
 movies = []
 
 
@@ -78,7 +111,8 @@ while selection != 'q':
     elif selection == "l":
         list_movies()
     elif selection == "f":
-        pass
+        search_type = get_search_type()
+        search_movies(search_type)
     else:
         print('Unknown command. Please try again.')
 
