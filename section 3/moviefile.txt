@@ -1,0 +1,12 @@
+{'title': 'Gigot', 'director': 'Jackie Gleason', 'year': 1962}
+{'title': 'Psycho', 'director': 'Alfred Hitchcock', 'year': 1965}
+{'title': 'Star Wars', 'director': 'Stephen Spielberg', 'year': 1979}
+{'title': 'Jaws', 'director': "Don't Remember", 'year': 1976}
+{'title': 'Rush Hour', 'director': 'Jackie Chan', 'year': '2004'}
+{'title': 'Gone With The Wind', 'director': 'Who knows?', 'year': '1939'}
+{'title': 'The Wizard of Oz', 'director': 'Somebody', 'year': '1945'}
+{'title': 'Saturday Night Feever', 'director': 'Someone Rich', 'year': '1979'}
+{'title': 'Movie', 'director': 'Director', 'year': 'some year'}
+{'title': 'Nacho Libre', 'director': 'Jack Black', 'year': '2010'}
+{'title': 'Kung Fu Panda', 'director': 'Jack Black', 'year': '2013'}
+{'title': 'Peter Pan', 'director': "I've forgotten", 'year': '1969'}

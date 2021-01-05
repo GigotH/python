@@ -1,0 +1,27 @@
+### Some best practices / formatting
+
+In a for loop, if the loop iteration variable (eg "car" in the loop "for car in allcars:"), if you won't actually be ouptutting the variable value, name it "_"
+
+Separate functions in your code with two blank lines, instead of one.
+
+
+
+
+Lists:  [1, 2, 3] ["Jim", "Joe", "John"]
+
+Tuples:  (1, 2, 3)  ("Jim", "Joe", "John")
+Sets:  {1, 2, 3}  {"Jim", "Joe", "John"}
+
+Dictionaries:  {key: value, key: value, key: value}  {"Eli": 61, "Gigot": 57, "Armin": 22}
+
+Tuple containing a dictionary:
+
+friends = (
+    {"name": "Eli Hudspth", "age": 61},  #  Comma between Tuple entries.
+    {"name": "Gigot Hudspeth", "age": 57},  #  Comma between Tuple entries.
+    {"name": "Armin Hudspeth", "age": 22}
+)
+
+#################################
+
+
