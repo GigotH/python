@@ -10,3 +10,5 @@
 {'title': 'Nacho Libre', 'director': 'Jack Black', 'year': '2010'}
 {'title': 'Kung Fu Panda', 'director': 'Jack Black', 'year': '2013'}
 {'title': 'Peter Pan', 'director': "I've forgotten", 'year': '1969'}
+{'title': 'Mad Max', 'director': 'Mel Gibson', 'year': '1980'}
+{'title': 'Space Balls', 'director': 'Mel Brooks', 'year': '1987'}

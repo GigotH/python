@@ -24,4 +24,10 @@ friends = (
 
 #################################
 
+Changing case:
+variable.lower()  #  changes to lower case
+variable.upper()  #  changes to upper case
+variable.title()  #  changes to proper case (first character of each word upper case)
+
+
 

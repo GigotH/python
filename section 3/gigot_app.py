@@ -1,13 +1,10 @@
-# Incomplete app!
 """--------------------------
 NOTES:
 
 Store movies in a list, which means when the application ends, the list of movies is gone.
 
-
-
-
 --------------------------"""
+
 def get_movie_from_user():
     title = input("Enter the movie title: ")
     director = input("Enter the movie director: ")
@@ -24,27 +21,22 @@ def add_movie(movie):
 
 
 def list_movies():
-    # temporary, until I can get nicer formatted output
+    movie_file = 'moviefile.txt'
 
-    filehandle = open(movie_file, 'r')
-    movie_list = filehandle.read()
-    print(movie_list)
-    filehandle.close()
+    #  create list of dictionaries from file.
+    movies = []
+    with open(movie_file, 'r') as input_file:
+        for line in input_file:
+            movies.append(eval(line))
 
-    # with open(movie_file, 'r') as filehandle:
-    #     for movie in filehandle:
-    #         print(movie)
+    # iterate through list of dictinaries, printing each
+    for movie in movies:
+        movie_title = movie["title"]
+        movie_director = movie["director"]
+        movie_year = movie["year"]
 
-    # movie_list = filehandle.read()
-    # print()
-    # print(f"Length of movie_list: {len(movie_list)}")
-    # print()
-    # for movie in movie_list:
-    #     print(f"Length of movie: {len(movie)}")
+        print(f"Movie: {movie_title}, Director: {movie_director}, Released:  {movie_year}")
 
-        # print(f"Title: {movie['title']}, Director: {movie['director']}, Released: {movie['year']}")
-        # print(f"Title: {movie['title']}, Director: {movie['director']}, Released: ")
-    #print(movie_list)
 
 def get_search_type():
     srch_type = ""
@@ -59,16 +51,58 @@ def search_movies(search_type):
     while search_string == "":
         if search_type == "t":
             search_string = input("Enter the Title of the movie for which you want to search:  ")
-            searching_for = "Title"
+            searching_for = "title"
         elif search_type == "d":
             search_string = input("Enter the Director of the movie for which you want to search:  ")
-            searching_for = "Director"
+            searching_for = "director"
         else:
             search_string = input("Enter the Release Year of the movie for which you want to search:  ")
-            searching_for = "Release Year"
+            searching_for = "year"
+            if not isinstance(searching_for, int):
+                print(f"The year must be an integer.  You entered {search_string}.  Please try again")
+                search_string = ""
         
-        print(f"{searching_for} Search for the string \"{search_string}\"")
+        print(f"\nPerforming case insensitivie {searching_for.title()} search for the string \"{search_string}\"\n")
+    
+    try:
+        movie_file = 'moviefile.txt'
+        #  create list of dictionaries from file.
+        movies = []
+        with open(movie_file, 'r') as input_file:
+            for line in input_file:
+                movies.append(eval(line))
 
+        results_found = 'False'
+        for movie in movies:
+            movie_title = movie["title"]
+            movie_director = movie["director"]
+            movie_year = movie["year"]
+
+            if search_type == "t":
+                if search_string.lower() in movie_title.lower():
+                    print(f"Found {search_string} in Movie Title: \"{movie_title}\"")
+                    results_found = 'True'
+            elif search_type == "d":
+                if search_string.lower() in movie_director.lower():
+                    print(f"Found {search_string} in Director Name: {movie_director} (Movie Title: \"{movie_title}\")")
+                    results_found = 'True'
+            else:
+                if search_string.lower() in str(movie_year):
+                    print(f"The Movie: \"{movie_title}\" was released in {search_string} ")
+                    results_found = 'True'
+
+        if results_found == "False":
+            print(f"There were no results found for your {searching_for.title()} search for \"{search_string}\"\n")
+
+
+            # print(f"Movie: {movie_title}, Director: {movie_director}, Released:  {movie_year}")
+
+    except:
+        print("There was a problem!")
+
+
+
+"""
         filehandle = open(movie_file, 'r')
         movie_list = filehandle.read()
         for movie in movie_list:
@@ -76,6 +110,8 @@ def search_movies(search_type):
                 print(f"Found {search_string} in {movie}.")
             else:
                 print(f"Did NOT find {search_string} in {movie}.")
+"""
+
 
 """
 MAIN CODE SECTION:
