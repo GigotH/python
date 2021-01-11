@@ -56,13 +56,15 @@ def search_movies(search_type):
             search_string = input("Enter the Director of the movie for which you want to search:  ")
             searching_for = "director"
         else:
-            search_string = input("Enter the Release Year of the movie for which you want to search:  ")
-            searching_for = "year"
-            if not isinstance(searching_for, int):
-                print(f"The year must be an integer.  You entered {search_string}.  Please try again")
+            try:
+                search_string = int(input("Enter the Release Year of the movie for which you want to search:  "))
+                searching_for = "year"
+            except:
+                print(f"The year must be an integer.  Please try again")
                 search_string = ""
+                
         
-        print(f"\nPerforming case insensitivie {searching_for.title()} search for the string \"{search_string}\"\n")
+    print(f"\nPerforming case insensitivie {searching_for.title()} search for the string \"{search_string}\"\n")
     
     try:
         movie_file = 'moviefile.txt'
